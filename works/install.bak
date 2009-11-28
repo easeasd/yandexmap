@@ -1,0 +1,61 @@
+DROP TABLE IF EXISTS `#__yandexmaps_map`;
+
+CREATE TABLE `#__yandexmaps_map` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) NOT NULL default '',
+  `width` int(5) NOT NULL default '0',
+  `height` int(5) NOT NULL default '0',
+  `latitude` varchar(20) NOT NULL default '',
+  `longitude` varchar(20) NOT NULL default '',
+  `zoom` int(3) NOT NULL default '0',
+  `lang` varchar(6) NOT NULL default '',
+  `border` tinyint(1) NOT NULL default '0',
+  `continuouszoom` tinyint(1) NOT NULL default '0',
+  `doubleclickzoom` tinyint(1) NOT NULL default '0',
+  `scrollwheelzoom` tinyint(1) NOT NULL default '0',
+  `zoomcontrol` tinyint(1) NOT NULL default '0',
+  `scalecontrol` tinyint(1) NOT NULL default '0',
+  `typecontrol` tinyint(1) NOT NULL default '0',
+  `collapsibleoverview` tinyint(1) NOT NULL default '0',
+  `dynamiclabel` tinyint(1) NOT NULL default '0',
+  `googlebar` tinyint(1) NOT NULL default '0',
+  `displayroute` tinyint(1) NOT NULL default '0',
+  `description` text NOT NULL,
+  `published` tinyint(1) NOT NULL default '0',
+  `checked_out` int(11) unsigned NOT NULL default '0',
+  `checked_out_time` datetime NOT NULL default '0000-00-00 00:00:00',
+  `ordering` int(11) NOT NULL default '0',
+  `access` tinyint(3) unsigned NOT NULL default '0',
+  `hits` int(11) NOT NULL default '0',
+  `params` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `cat_idx` (`published`,`access`),
+  KEY `idx_access` (`access`),
+  KEY `idx_checkout` (`checked_out`)
+) TYPE=MyISAM CHARACTER SET `utf8`;
+
+DROP TABLE IF EXISTS `#__yandexmaps_marker`;
+
+CREATE TABLE `#__yandexmaps_marker` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `catid` int(11) NOT NULL default '0',
+  `title` varchar(250) NOT NULL default '',
+  `alias` varchar(255) NOT NULL default '',
+  `latitude` varchar(20) NOT NULL default '',
+  `longitude` varchar(20) NOT NULL default '',
+  `gpslatitude` varchar(50) NOT NULL default '',
+  `gpslongitude` varchar(50) NOT NULL default '',
+  `displaygps` tinyint(1) NOT NULL default '0',
+  `icon` tinyint(1) NOT NULL default '0',
+  `description` text NOT NULL,
+  `published` tinyint(1) NOT NULL default '0',
+  `checked_out` int(11) unsigned NOT NULL default '0',
+  `checked_out_time` datetime NOT NULL default '0000-00-00 00:00:00',
+  `ordering` int(11) NOT NULL default '0',
+  `access` tinyint(3) unsigned NOT NULL default '0',
+  `hits` int(11) NOT NULL default '0',
+  `params` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `catid` (`catid`,`published`)
+) TYPE=MyISAM CHARACTER SET `utf8`;
