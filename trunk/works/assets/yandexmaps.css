@@ -5,6 +5,7 @@ div.icon-48-info {
 }
 div.icon-48-yandex {
 	background: url('images/icon-48-yandex.png') no-repeat left;
+	padding-right: 20px;
 }
 div.icon-48-map {
 	background: url('images/icon-48-map.png') no-repeat left;
