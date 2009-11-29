@@ -13,9 +13,9 @@ jimport( 'joomla.filesystem.folder' );
 
 function com_install() {
 	
-	$message = '<p>Please select if you want to Install or Upgrade Yandex Maps component. Click Install for new Yandex Maps installation. If you click on Install and some previous Yandex Maps version is installed on your system, all Yandex Maps data stored in database will be lost. If you click on Uprade, previous Yandex Maps data stored in database will be not removed.</p>';
+	$message = '<p>Пожалуйста, выберите, "Новая установка" или "Обновление" компонента Яндекс Карты. Если вы устанавливаете компонент Яндекс Карты первый раз, то выберите "Новая установка". Если вы выбрали "Новая установка" то все данные от предидущих установок компонента Яндекс карты будут потеряны. Если вы хотите только обновить версию компонента, то выберите "Обновление", в этом случае все данные будут сохранены.</p>';
 	
-	$message .='<p>Maps are created by Google Maps™<br />Before you can use this component, you should sign up for the <a href="http://code.google.com/apis/maps/signup.html" target="_blank">Google Maps API</a> and get Google Maps API key. This key needs to be added into Google Maps API key form field in Yandex Maps Parameters.</p>';
+	$message .='<p>Если у вас нет Yandex Maps API ключа, то перейдите на страницу <a href="http://api.yandex.ru/maps/form.xml" target="_blank">Yandex Maps API</a> и получите там ключ для своего сайта. Этот ключ нужно будет добавить в настройках компонента Яндекс карты.</p>';
 	
 
 	?>
@@ -47,16 +47,13 @@ function com_install() {
 		
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
-		<p>
-		<a href="http://www.phoca.cz/yandexmaps/" target="_blank">Yandex Maps Main Site</a><br />
-		<a href="http://www.phoca.cz/documentation/" target="_blank">Yandex Maps User Manual</a><br />
-		<a href="http://www.phoca.cz/forum/" target="_blank">Yandex Maps Forum</a><br />
-		</p>
 		
-		<p>Google™ is a trademark of <a href="http://www.google.com" target="_blank">Google Inc.</a><br />Google Maps™ is a trademark of <a href="http://www.google.com" target="_blank">Google Inc.</a></p>
+		
+		<p> <a href="http://api.yandex.ru/" target="_blank">API Yandex map</a> </p>
+        <p><a href="http://yandex.ru/" target="_blank">Yandex</a></p>
 		
 		<p>&nbsp;</p>
-		<p><center><a style="text-decoration:underline" href="http://www.phoca.cz/" target="_blank">www.phoca.cz</a></center></p>		
+		<p><center><a style="text-decoration:underline" href="http://yar-it.com" target="_blank">www.yar-it.com</a></center></p>		
 <?php
 }
 ?>
