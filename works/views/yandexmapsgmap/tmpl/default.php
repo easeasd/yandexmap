@@ -15,7 +15,7 @@ echo '<p>' . JText::_('Google Maps API Key Error') . '</p>';
             window.onload = function init () {
                 var pointCenter = new YMaps.GeoPoint( <?php echo $this->longitude;?>, <?php echo $this->latitude;?>);
                 map = new YMaps.Map(document.getElementById("YMapsID"));
-                map.setCenter(pointCenter, 10);
+                map.setCenter(pointCenter, <?php echo $this->zoom;?>);
                 map.addControl(new YMaps.TypeControl());
                 map.enableScrollZoom();
                 
@@ -47,7 +47,7 @@ echo '<p>' . JText::_('Google Maps API Key Error') . '</p>';
                         placemark.openBalloon();
 						
                     }else {
-                        alert("Ничего не найдено")
+                        alert("<?php echo JText::_('An unknown error occurred');?>")
                     }
                 });
             }
@@ -57,9 +57,13 @@ echo '<p>' . JText::_('Google Maps API Key Error') . '</p>';
                 if (text) {
                 content += '<div class="title">' + text + '</div>';
                 }
-                content += '<span class="coords-title"> Координаты: </span>' + geoPoint.toString();
+                content += '<span class="coords-title"> <?php echo JText::_('Koordinate');?>: </span>' + geoPoint.toString();
                 placemark.setBalloonContent(content);
-                document.getElementById('coords').value = geoPoint.toString();
+                document.getElementById('coords').value = geoPoint.getLng();
+				document.getElementById('coords2').value = geoPoint.getLat();	
+				
+				window.top.document.forms.adminForm.getElementById('longitude').value = geoPoint.getLng();
+				window.top.document.forms.adminForm.getElementById('latitude').value = geoPoint.getLat();
 
             }
 			
@@ -71,15 +75,17 @@ echo '<p>' . JText::_('Google Maps API Key Error') . '</p>';
   <form action="#" onsubmit="showAddress(this.address.value);return false;">
     <table>
       <tr>
-        <td><input name=""  type="text" id="address" value="Москва" size="50" />
+        <td><input name=""  type="text" id="address" value="" size="50" />
           </input></td>
-        <td><input class="find-button" type="submit" value="Получить координаты места">
+        <td><input class="find-button" type="submit" value="<?php echo JText::_('Get route');?>">
           </input>
         </td>
       </tr>
       <tr>
-        <td colspan="2"><p> Координаты метки:
-            <input name="" type="text" id="coords" size="30" />
+        <td colspan="2"><p>
+        	<?php echo JText::_('Latitude');?>:<input name="" type="text" id="coords2" size="30" /></input>&nbsp;
+            <?php echo JText::_('Longitude');?>:<input name="" type="text" id="coords" size="30" />
+            
             </input>
           </p></td>
       </tr>
@@ -93,12 +99,7 @@ echo '<p>' . JText::_('Google Maps API Key Error') . '</p>';
   <td><i></i></td>
   </tr>
   </table>
-  <!-- <form action="#" onsubmit="showLocation(); return false;">
-    <?php echo JText::_('Set Coordinates by address');?> :
-    <input type="text" name="q" value="" class="address_input" size="30" />
-    <input type="submit" name="find" value="<?php echo JText::_('Set');?>" />
-  </form>-->
-</div>
+ </div>
 <?php
 }
 ?>
