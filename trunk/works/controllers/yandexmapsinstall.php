@@ -92,7 +92,7 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$query.=' `gpslatitude` varchar(50) NOT NULL default \'\','."\n";
 		$query.=' `gpslongitude` varchar(50) NOT NULL default \'\','."\n";
 		$query.=' `displaygps` tinyint(1) NOT NULL default \'0\','."\n";
-		$query.=' `icon` tinyint(1) NOT NULL default \'0\',';
+		$query.=' `icon` varchar(50) NOT NULL default \'\','."\n";
 		$query.=' `description` text NOT NULL,'."\n";
 		$query.=' `published` tinyint(1) NOT NULL default \'0\','."\n";
 		$query.=' `checked_out` int(11) unsigned NOT NULL default \'0\','."\n";

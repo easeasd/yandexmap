@@ -20,7 +20,7 @@ class TableYandexMapsMap extends JTable
 	var $typecontrol		= 1;
 	var $collapsibleoverview = 1;
 	var $dynamiclabel 		= 0;
-	var $googlebar 			= 1;
+	var $googlebar 			= 0;
 	var $displayroute		= 0;
 	var $description		= null;
 	var $published			= null;

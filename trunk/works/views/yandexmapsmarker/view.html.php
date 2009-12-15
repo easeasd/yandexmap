@@ -125,6 +125,20 @@ class yandexMapsCpViewYandexMapsMarker extends JView
 		$buttonMap->set('modalname', 'modal-button');
 		$buttonMap->set('options', "{handler: 'iframe', size: {x: 640, y: 600}}");
 		
+		$path = 'components/com_yandexmaps/assets/images/icon/';
+		$fullpath = JURI::root() . $path;
+		$customJS = 'onchange="javascript:
+			if (document.forms.adminForm.icon.options[selectedIndex].value!=\'\') {
+				document.imagelib.src=\''.$fullpath.'\' + document.forms.adminForm.icon.options[selectedIndex].value;
+			}
+			else
+			{
+				document.imagelib.src=\'../images/blank.png\';
+			}""';
+        $iconimg = isset($item->icon) ? $item->icon : '';
+		$iconcombo = JHTML::_( 'list.images', 'icon', $iconimg , $customJS, $path );
+        $iconcombo .= '<br/><br/><img src="' . $fullpath . $iconimg  .'" name="imagelib"  border="0" alt="' . JText::_( 'YBB_PREVIEW' ) . '" /><br />';
+		
 			
 		$this->assignRef('editor', $editor);
 		$this->assignRef('lists', $lists);
@@ -132,6 +146,9 @@ class yandexMapsCpViewYandexMapsMarker extends JView
 		$this->assignRef('buttonmap', $buttonMap);	
 		$this->assignRef('tmpl', $tmpl);
 		$this->assignRef('request_url',	$uri->toString());
+		$this->assignRef('iconcombo', $iconcombo);
+		
+		
 
 		parent::display($tpl);
 	}

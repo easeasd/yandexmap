@@ -23,7 +23,7 @@ class YandexMapsViewMap extends JView
 		$document	= & JFactory::getDocument();		
 		$params		= &$mainframe->getParams();
 		
-		//$document->addStyleSheet(JURI::base(true).'/components/com_yandexmaps/assets/yandexmaps.css');
+		$document->addStyleSheet(JURI::base(true).'/components/com_yandexmaps/assets/yandexmaps.css');
 		
 
 		$tmpl['apikey']				= $params->get( 'google_maps_api_key', '' );
