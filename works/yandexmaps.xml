@@ -9,7 +9,7 @@
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
 	<!-- The version string is recorded in the components table -->
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>Yandex Maps</description>
 
@@ -135,7 +135,6 @@
 			<filename>helpers/index.html</filename>
 			<filename>helpers/yandexmaps.php</filename>
 			<filename>helpers/yandexmapsrender.php</filename>
-			<filename>helpers/yandexmapsrenderfront.php</filename>
 			<filename>models/index.html</filename>
 			<filename>models/yandexmapsmap.php</filename>
 			<filename>models/yandexmapsmaps.php</filename>

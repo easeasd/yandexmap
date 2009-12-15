@@ -156,24 +156,17 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 			$msgSQL .= $db->getErrorMsg(). '<br />';
 		}
 		
-		//Version 1.0.1
-		// UPDATE displayroute
-		$updateDR 	= false;
-		$updateDR	= $this->AddColumnIfNotExists("".$dbPref."yandexmaps_map", "displayroute", "tinyint(1) NOT NULL default '0'", "googlebar" );
-		if (!$updateDR) {
-			$msgSQL .= 'Error while updating Display Route column<br />';
-		}
+		//Обновление до версии 1.0.5
 		
+		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` CHANGE `icon` `icon` VARCHAR( 50 ) NOT NULL DEFAULT ''";
+		$db->setQuery( $query );	
+		if (!$result = $db->query()){$msgSQL .= $db->stderr() . '<br />';}
 
 		// Error
 		if ($msgSQL !='') {
 			$msgError .= '<br />' . $msgSQL;
 		}
-		/*
-		if ($msgFile !='') {
-			$msgError .= '<br />' . $msgFile;
-		}
-		*/	
+
 		// End Message
 		if ($msgError !='') {
 			$msg = JText::_( 'Yandex Maps not successfully upgraded' ) . ': ' . $msgError;
@@ -181,42 +174,12 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 			$msg = JText::_( 'Yandex Maps successfully upgraded' );
 		}
 		
+		
+		
 		$link = 'index.php?option=com_yandexmaps';
 		$this->setRedirect($link, $msg);
 	}
 	
-	
-	function AddColumnIfNotExists($table, $column, $attributes = "INT( 11 ) NOT NULL DEFAULT '0'", $after = '' ) {
-		
-		global $mainframe;
-		$db				=& JFactory::getDBO();
-		$columnExists 	= false;
-
-		$query = 'SHOW COLUMNS FROM '.$table;
-		$db->setQuery( $query );
-		if (!$result = $db->query()){return false;}
-		$columnData = $db->loadObjectList();
-		
-		
-		foreach ($columnData as $valueColumn) {
-			if ($valueColumn->Field == $column) {
-				$columnExists = true;
-				break;
-			}
-		}
-		
-		if (!$columnExists) {
-			if ($after != '') {
-				$query = "ALTER TABLE `".$table."` ADD `".$column."` ".$attributes." AFTER `".$after."`";
-			} else {
-				$query = "ALTER TABLE `".$table."` ADD `".$column."` ".$attributes."";
-			}
-			$db->setQuery( $query );
-			if (!$result = $db->query()){return false;}
-		}
-		
-		return true;
-	}
 }
-// utf-8 test: ä,ö,ü,ř,ž
+// utf-8 test: елки моталки
 ?>
