@@ -137,7 +137,7 @@ class yandexMapsCpViewYandexMapsMarker extends JView
 			}""';
         $iconimg = isset($item->icon) ? $item->icon : '';
 		$iconcombo = JHTML::_( 'list.images', 'icon', $iconimg , $customJS, $path );
-        $iconcombo .= '<br/><br/><img src="' . $fullpath . $iconimg  .'" name="imagelib"  border="0" alt="' . JText::_( 'YBB_PREVIEW' ) . '" /><br />';
+        $iconcombo .= '<br/><br/><img src="' . $fullpath . $iconimg  .'" name="imagelib"  border="0" alt="' . JText::_( 'Poumolchaniu' ) . '" /><br />';
 		
 			
 		$this->assignRef('editor', $editor);
