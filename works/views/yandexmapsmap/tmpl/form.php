@@ -13,17 +13,17 @@ echo YandexMapsRender::renderFormStyle();?>
 	<legend><?php echo JText::_('Basic Settings'); ?></legend>
 	<table class="admintable">		
 		<?php		
-		echo YandexMapsRender::renderFormInput('title', 'Title', $this->item->title);
-		echo YandexMapsRender::renderFormInput('alias', 'Alias', $this->item->alias);
+		echo YandexMapsRender::renderFormInput('title', 'Title', '', $this->item->title);
+		echo YandexMapsRender::renderFormInput('alias', 'Alias', '', $this->item->alias);
 		echo YandexMapsRender::renderFormItemImageButton('latitude', 'Latitude', $this->item->latitude, 50, 50, $this->buttonmap);
-		echo YandexMapsRender::renderFormInput('longitude', 'Longitude', $this->item->longitude, 50, 50);		
-		echo YandexMapsRender::renderFormInput('zoom', 'Zoom', $this->item->zoom);
-		echo YandexMapsRender::renderFormInput('width', 'Map Width', $this->item->width);
-		echo YandexMapsRender::renderFormInput('height', 'Map Height', $this->item->height);
-		echo YandexMapsRender::renderFormInput('lang', 'Versionmap', $this->item->lang, 5, 5);
-		echo YandexMapsRender::renderFormItemSpecial('published', 'Published', $this->lists['published'] );
-		echo YandexMapsRender::renderFormItemSpecial('ordering', 'Ordering', $this->lists['ordering'] );
-		echo YandexMapsRender::renderFormItemSpecial('description', 'Description', $this->editor->display( 'description',  $this->item->description, '550', '300', '60', '20', array('pagebreak', 'readmore') ) );
+		echo YandexMapsRender::renderFormInput('longitude', 'Longitude', '', $this->item->longitude, 50, 50);		
+		echo YandexMapsRender::renderFormInput('zoom', 'Zoom', 'Zoom Disc', $this->item->zoom);
+		echo YandexMapsRender::renderFormInput('width', 'Map Width', 'Map Width Disc', $this->item->width);
+		echo YandexMapsRender::renderFormInput('height', 'Map Height', '', $this->item->height);
+		echo YandexMapsRender::renderFormInput('lang', 'Versionmap', 'Versionmap Disc', $this->item->lang, 5, 5);
+		echo YandexMapsRender::renderFormItemSpecial('published', 'Published', '', $this->lists['published'] );
+		echo YandexMapsRender::renderFormItemSpecial('ordering', 'Ordering', '', $this->lists['ordering'] );
+		echo YandexMapsRender::renderFormItemSpecial('description', 'Description', '', $this->editor->display( 'description',  $this->item->description, '550', '300', '60', '20', array('pagebreak', 'readmore') ) );
 		
 		
 		?>
@@ -36,20 +36,20 @@ echo YandexMapsRender::renderFormStyle();?>
 	<table class="admintable">		
 		<?php
 		$option = array(0 => 'No', 1 => 'Yes');
-		echo YandexMapsRender::renderFormSelectBox('continuouszoom', 'Continuous Zoom', $this->item->continuouszoom, $option);
-		echo YandexMapsRender::renderFormSelectBox('doubleclickzoom', 'Doubleclick Zoom', $this->item->doubleclickzoom, $option);
-		echo YandexMapsRender::renderFormSelectBox('scrollwheelzoom', 'Scroll Wheel Zoom', $this->item->scrollwheelzoom, $option);
+		echo YandexMapsRender::renderFormSelectBox('continuouszoom', 'Continuous Zoom', 'Continuous Zoom Disc', $this->item->continuouszoom, $option);
+		echo YandexMapsRender::renderFormSelectBox('doubleclickzoom', 'Doubleclick Zoom', '', $this->item->doubleclickzoom, $option);
+		echo YandexMapsRender::renderFormSelectBox('scrollwheelzoom', 'Scroll Wheel Zoom', '', $this->item->scrollwheelzoom, $option);
 		$option = array(0 => 'None', 1 => 'LargeMap Control 3D', 2 => 'LargeMap Control');
-		echo YandexMapsRender::renderFormSelectBox('zoomcontrol', 'Zoom Control', $this->item->zoomcontrol, $option);
+		echo YandexMapsRender::renderFormSelectBox('zoomcontrol', 'Zoom Control', '', $this->item->zoomcontrol, $option);
 		$option = array(0 => 'No', 1 => 'Yes');
-		echo YandexMapsRender::renderFormSelectBox('scalecontrol', 'Scale Control', $this->item->scalecontrol, $option);
+		echo YandexMapsRender::renderFormSelectBox('scalecontrol', 'Scale Control', '', $this->item->scalecontrol, $option);
 		$option = array(0 => 'None', 1 => 'Default Map Types', 2 => 'Normal Map', 3 => 'Satellite Map', 4 => 'Hybrid Map', 5 => 'Physical Map', 7 => 'Default Map Types (Satellite Map)', 8 => 'Default Map Types (Hybrid Map)', 9 => 'Default Map Types (Physical Map)');
-		echo YandexMapsRender::renderFormSelectBox('typecontrol', 'Type Control', $this->item->typecontrol, $option);
+		echo YandexMapsRender::renderFormSelectBox('typecontrol', 'Type Control', '', $this->item->typecontrol, $option);
 		$option = array(0 => 'No', 1 => 'Yes');
-		echo YandexMapsRender::renderFormSelectBox('collapsibleoverview', 'Collapsible Overview Control', $this->item->collapsibleoverview, $option);
-		echo YandexMapsRender::renderFormSelectBox('dynamiclabel', 'Dynamic Label Control', $this->item->dynamiclabel, $option);
-		echo YandexMapsRender::renderFormSelectBox('googlebar', 'GoogleBar', $this->item->googlebar, $option);
-		echo YandexMapsRender::renderFormSelectBox('displayroute', 'Display Get Route Form', $this->item->displayroute, $option);
+		echo YandexMapsRender::renderFormSelectBox('collapsibleoverview', 'Collapsible Overview Control', '', $this->item->collapsibleoverview, $option);
+		echo YandexMapsRender::renderFormSelectBox('dynamiclabel', 'Dynamic Label Control', '', $this->item->dynamiclabel, $option);
+		echo YandexMapsRender::renderFormSelectBox('googlebar', 'GoogleBar', '', $this->item->googlebar, $option);
+		echo YandexMapsRender::renderFormSelectBox('displayroute', 'Display Get Route Form', '', $this->item->displayroute, $option);
 		
 		?>
 	</table>	

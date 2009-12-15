@@ -217,8 +217,8 @@ class YandexMapsCpModelYandexMapsMarker extends JModel
 			$table->catid				= null;
 			$table->title				= null;
 			$table->alias				= null;
-			$table->latitude			= 50;
-			$table->longitude			= -30;
+			$table->latitude			= 57.619879;
+			$table->longitude			= 39.870592;
 			$table->gpslatitude			= null;
 			$table->gpslongitude		= null;
 			$table->displaygps			= null;

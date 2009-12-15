@@ -204,12 +204,12 @@ class YandexMapsCpModelYandexMapsMap extends JModel
 			$table->alias				= null;
 			$table->width				= 400;
 			$table->height				= 360;
-			$table->latitude			= 50;
-			$table->longitude			= -30;
+			$table->latitude			= 57.619879;
+			$table->longitude			= 39.870592;
 			$table->zoom				= 2;	
 			$table->lang				= '1.1';
 			$table->border				= null;
-			$table->continuouszoom 		= 1;
+			$table->continuouszoom 		= 0;
 			$table->doubleclickzoom 	= 1;
 			$table->scrollwheelzoom 	= 1;
 			$table->zoomcontrol			= 1;

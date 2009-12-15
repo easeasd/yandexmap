@@ -1,0 +1,6 @@
+div.YMaps {
+	border: 1px solid #CCC;
+}
+div.YMaps:hover{
+	border: 1px solid #000099;
+}

@@ -15,7 +15,7 @@ if ($this->tmpl['apikey'] == '') {
 		echo '<div class="pm-desc">'.$this->map->description.'</div>';
 	}
 
-	// Check values
+	// Проверка значений
 	$fullWidth = 0;
 	if (!isset($this->map->width)) {
 		$this->map->width = 400;
@@ -37,27 +37,18 @@ if ($this->tmpl['apikey'] == '') {
 	}
 
 	
-
-	// Plugin - no border
-	if ($this->pluginmap == 1) {
-		$border = '';
-		$styleSite = 'margin:10px;';
-	} else {
-		$styleSite = 'margin:0;padding:0;margin-top:10px;';
-	}
-	
 	$document	= & JFactory::getDocument();
 	$scriptLink	= 'http://api-maps.yandex.ru/'.$mapLang.'/index.xml?key='. $this->tmpl['apikey'];
 	$document->addScript($scriptLink);
-	echo '<noscript>'. JText::_('GOOGLE MAP ENABLE JAVASCRIPT').'</noscript>';
+	//echo '<noscript>'. JText::_('GOOGLE MAP ENABLE JAVASCRIPT').'</noscript>';
 	
-	$styleSiteWidth = '';
-	if ($fullWidth == 1) {
-		$styleSiteWidth = 'style="width:100%"';
-	}
+	if ($fullWidth == 1) {//если 0 то растягиваем на 100%
 	
-
+	echo '<div id="YMapsID" style="margin:0;padding:0;width:100%;height:'.$this->map->height.'px"></div>';
+	
+	}else{//если больше 0 то по заданным размерам
 	echo '<div id="YMapsID" style="margin:0;padding:0;width:'.$this->map->width.'px;height:'.$this->map->height.'px"></div>';			
+		}		
 		
 
 if (isset($this->map->displayroute) && $this->map->displayroute == 1) {
@@ -206,8 +197,30 @@ $scriptheader = 'var map, geoResult;' ."\n";
 					}
 					
 					
-//Загружаем балуны всякие
-	$scriptheader .= 'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint( '.$markerV->longitude.', '.$markerV->latitude.'));' ."\n";
+if (isset($markerV->icon) && (int)$markerV->icon != '') {
+
+// Создание стиля для значка метки
+          $scriptheader .=   'var s'.$markerV->id.' = new YMaps.Style();' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle = new YMaps.IconStyle();' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.href = "/components/com_yandexmaps/assets/images/icon/'.$markerV->icon.'";' ."\n";
+         // $scriptheader .=   's'.$markerV->id.'.iconStyle.size = new YMaps.Point(26, 26);' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.offset = new YMaps.Point(-9, -29);' ."\n";
+		  
+		/*  $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow = new YMaps.IconShadowStyle();' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow.href = "/components/com_yandexmaps/assets/images/icon/'.$markerV->icon.'-shadow.png";' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow.size = new YMaps.Point(26, 26);' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow.offset = new YMaps.Point(-9, -29);' ."\n";*/
+
+		
+		  $scriptheader .=	'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint('.$markerV->longitude.', '.$markerV->latitude.'), {style: s'.$markerV->id.'});' ."\n";
+							
+		
+		}else{
+		
+		//Загружаем балуны всякие
+		  $scriptheader .= 'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint( '.$markerV->longitude.', '.$markerV->latitude.'));' ."\n";
+							
+		}
 	
 	
 	 if (isset($this->map->continuouszoom) && (int)$this->map->continuouszoom == 1) {
@@ -270,5 +283,5 @@ if ($this->tmpl['displayyandexinfo'] == 1) {
 } else {
 	
 }
-	echo '<div style="text-align:right;margin-top:10px;clear:both; font-size:8px;"><a href="http://yar-it.com/" style="color:#CCCCCC">www.yar-it.com</a></div>';
+	echo '<div style="text-align:right;margin-top:5px;clear:both; font-size:8px;"><a href="http://yar-it.com/" style="color:#CCCCCC">Яндекс карты</a></div>';
 ?>

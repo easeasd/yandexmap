@@ -29,18 +29,15 @@ $ordering = ($this->lists['order'] == 'a.ordering');
 			<th width="5"><?php echo JText::_( 'NUM' ); ?></th>
 			<th width="5"><input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->items ); ?>);" /></th>
 			
-			<th class="title" width="70%"><?php echo JHTML::_('grid.sort',  'Title', 'a.title', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-			</th>
-			<th class="title" width="10%"><?php echo JHTML::_('grid.sort',  'Map', 'a.catid', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-			</th>
+			<th class="title" width="70%"><?php echo JHTML::_('grid.sort',  'Title', 'a.title', $this->lists['order_Dir'], $this->lists['order'] ); ?>			</th>
+			<th class="title" width="10%"><?php echo JHTML::_('grid.sort',  'Marker Icon', 'a.icon', $this->lists['order_Dir'], $this->lists['order'] ); ?></th>
+			<th class="title" width="10%"><?php echo JHTML::_('grid.sort',  'Map', 'a.catid', $this->lists['order_Dir'], $this->lists['order'] ); ?>			</th>
 			
-			<th width="5%" nowrap="nowrap"><?php echo JHTML::_('grid.sort',  'Published', 'a.published', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-			</th>
+			<th width="5%" nowrap="nowrap"><?php echo JHTML::_('grid.sort',  'Published', 'a.published', $this->lists['order_Dir'], $this->lists['order'] ); ?>			</th>
 			<th width="13%" nowrap="nowrap">
 				<?php echo JHTML::_('grid.sort',  'Order', 'a.ordering', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				<?php echo JHTML::_('grid.order',  $this->items ); ?></th>
-			<th width="1%" nowrap="nowrap"><?php echo JHTML::_('grid.sort',  'ID', 'a.id', $this->lists['order_Dir'], $this->lists['order'] ); ?>
-			</th>
+			<th width="1%" nowrap="nowrap"><?php echo JHTML::_('grid.sort',  'ID', 'a.id', $this->lists['order_Dir'], $this->lists['order'] ); ?>			</th>
 		</tr>
 	</thead>
 	
@@ -73,21 +70,29 @@ $ordering = ($this->lists['order'] == 'a.ordering');
 								<?php echo $row->title; ?></a>
 						<?php
 						}
-						?>
-					</td>
+						?>					</td>
 					
-					<td>
+					<td align="center">
+                    <?php 
+							$path = 'components/com_yandexmaps/assets/images/icon/';
+							$fullpath = JURI::root() . $path;
+							if ($row->icon != '')
+							{?>
+                    <img src="<?php echo $fullpath.$row->icon; ?>" alt="" />
+                    <?php }else{?>
+                    <?php echo JText::_('Poumolchaniu');?>
+                    <?php }?>
+                    </td>
+					<td align="center">
 						<a href="<?php echo $linkCatid; ?>" title="<?php echo JText::_( 'Edit Map' ); ?>">
-							<?php echo $row->catidname; ?></a>
-					</td>
+							<?php echo $row->catidname; ?></a></td>
 					
 					<td align="center"><?php echo $published;?></td>
 					<td class="order">
 						<span><?php echo $this->pagination->orderUpIcon( $i, ($row->catid == @$this->items[$i-1]->catid),'orderup', 'Move Up', $ordering ); ?></span>
 						<span><?php echo $this->pagination->orderDownIcon( $i, $n, ($row->catid == @$this->items[$i+1]->catid), 'orderdown', 'Move Down', $ordering ); ?></span>
 					<?php $disabled = $ordering ?  '' : 'disabled="disabled"'; ?>
-						<input type="text" name="order[]" size="5" value="<?php echo $row->ordering;?>" <?php echo $disabled ?> class="text_area" style="text-align: center" />
-					</td>
+						<input type="text" name="order[]" size="5" value="<?php echo $row->ordering;?>" <?php echo $disabled ?> class="text_area" style="text-align: center" />					</td>
 					<td align="center"><?php echo $row->id; ?></td>
 				</tr>
 			<?php
@@ -100,7 +105,7 @@ $ordering = ($this->lists['order'] == 'a.ordering');
 	
 	<tfoot>
 		<tr>
-			<td colspan="11"><?php echo $this->pagination->getListFooter(); ?></td>
+			<td colspan="12"><?php echo $this->pagination->getListFooter(); ?></td>
 		</tr>
 	</tfoot>
 </table>

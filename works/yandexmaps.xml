@@ -39,48 +39,12 @@
 		<filename>index.html</filename>
 		<filename>yandexmaps.php</filename>
 		<filename>router.php</filename>
-		<filename>assets/images/box-black-bl.png</filename>
-		<filename>assets/images/box-black-br.png</filename>
-		<filename>assets/images/box-black-tl.png</filename>
-		<filename>assets/images/box-black-tr.png</filename>
-		<filename>assets/images/box-grey-bl.png</filename>
-		<filename>assets/images/box-grey-br.png</filename>
-		<filename>assets/images/box-grey-tl.png</filename>
-		<filename>assets/images/box-grey-tr.png</filename>
-		<filename>assets/images/box-greyrc-bl.png</filename>
-		<filename>assets/images/box-greyrc-br.png</filename>
-		<filename>assets/images/box-greyrc-tl.png</filename>
-		<filename>assets/images/box-greyrc-tr.png</filename>
-		<filename>assets/images/gicongreen/image.png</filename>
-		<filename>assets/images/gicongreen/mozPrintImage.gif</filename>
-		<filename>assets/images/gicongreen/printImage.gif</filename>
-		<filename>assets/images/gicongreen/printShadow.gif</filename>
-		<filename>assets/images/gicongreen/shadow.png</filename>
-		<filename>assets/images/gicongreen/transparent.png</filename>
-		<filename>assets/images/gicongrey/image.png</filename>
-		<filename>assets/images/gicongrey/mozPrintImage.gif</filename>
-		<filename>assets/images/gicongrey/printImage.gif</filename>
-		<filename>assets/images/gicongrey/printShadow.gif</filename>
-		<filename>assets/images/gicongrey/shadow.png</filename>
-		<filename>assets/images/gicongrey/transparent.png</filename>
-		<filename>assets/images/giconhome/image.png</filename>
-		<filename>assets/images/giconhome/mozPrintImage.gif</filename>
-		<filename>assets/images/giconhome/printImage.gif</filename>
-		<filename>assets/images/giconhome/printShadow.gif</filename>
-		<filename>assets/images/giconhome/shadow.png</filename>
-		<filename>assets/images/giconhome/transparent.png</filename>
-		<filename>assets/images/giconstar/image.png</filename>
-		<filename>assets/images/giconstar/mozPrintImage.gif</filename>
-		<filename>assets/images/giconstar/printImage.gif</filename>
-		<filename>assets/images/giconstar/printShadow.gif</filename>
-		<filename>assets/images/giconstar/shadow.png</filename>
-		<filename>assets/images/giconstar/transparent.png</filename>
-		<filename>assets/images/giconyellow/image.png</filename>
-		<filename>assets/images/giconyellow/mozPrintImage.gif</filename>
-		<filename>assets/images/giconyellow/printImage.gif</filename>
-		<filename>assets/images/giconyellow/printShadow.gif</filename>
-		<filename>assets/images/giconyellow/shadow.png</filename>
-		<filename>assets/images/giconyellow/transparent.png</filename>
+		<filename>assets/images/icon/1.png</filename>
+		<filename>assets/images/icon/2.png</filename>
+		<filename>assets/images/icon/3.png</filename>
+		<filename>assets/images/icon/4.png</filename>
+		<filename>assets/images/icon/5.png</filename>
+		<filename>assets/images/icon/index.html</filename>
 		<filename>assets/images/index.html</filename>
 		<filename>assets/index.html</filename>
 		<filename>assets/yandexmaps.css</filename>
@@ -213,48 +177,12 @@
 
 		<!-- Only Development - copy ./front, ./language, ./other to admin area -->
 		<files>
-			<filename>front/assets/images/box-black-bl.png</filename>
-			<filename>front/assets/images/box-black-br.png</filename>
-			<filename>front/assets/images/box-black-tl.png</filename>
-			<filename>front/assets/images/box-black-tr.png</filename>
-			<filename>front/assets/images/box-grey-bl.png</filename>
-			<filename>front/assets/images/box-grey-br.png</filename>
-			<filename>front/assets/images/box-grey-tl.png</filename>
-			<filename>front/assets/images/box-grey-tr.png</filename>
-			<filename>front/assets/images/box-greyrc-bl.png</filename>
-			<filename>front/assets/images/box-greyrc-br.png</filename>
-			<filename>front/assets/images/box-greyrc-tl.png</filename>
-			<filename>front/assets/images/box-greyrc-tr.png</filename>
-			<filename>front/assets/images/gicongreen/image.png</filename>
-			<filename>front/assets/images/gicongreen/mozPrintImage.gif</filename>
-			<filename>front/assets/images/gicongreen/printImage.gif</filename>
-			<filename>front/assets/images/gicongreen/printShadow.gif</filename>
-			<filename>front/assets/images/gicongreen/shadow.png</filename>
-			<filename>front/assets/images/gicongreen/transparent.png</filename>
-			<filename>front/assets/images/gicongrey/image.png</filename>
-			<filename>front/assets/images/gicongrey/mozPrintImage.gif</filename>
-			<filename>front/assets/images/gicongrey/printImage.gif</filename>
-			<filename>front/assets/images/gicongrey/printShadow.gif</filename>
-			<filename>front/assets/images/gicongrey/shadow.png</filename>
-			<filename>front/assets/images/gicongrey/transparent.png</filename>
-			<filename>front/assets/images/giconhome/image.png</filename>
-			<filename>front/assets/images/giconhome/mozPrintImage.gif</filename>
-			<filename>front/assets/images/giconhome/printImage.gif</filename>
-			<filename>front/assets/images/giconhome/printShadow.gif</filename>
-			<filename>front/assets/images/giconhome/shadow.png</filename>
-			<filename>front/assets/images/giconhome/transparent.png</filename>
-			<filename>front/assets/images/giconstar/image.png</filename>
-			<filename>front/assets/images/giconstar/mozPrintImage.gif</filename>
-			<filename>front/assets/images/giconstar/printImage.gif</filename>
-			<filename>front/assets/images/giconstar/printShadow.gif</filename>
-			<filename>front/assets/images/giconstar/shadow.png</filename>
-			<filename>front/assets/images/giconstar/transparent.png</filename>
-			<filename>front/assets/images/giconyellow/image.png</filename>
-			<filename>front/assets/images/giconyellow/mozPrintImage.gif</filename>
-			<filename>front/assets/images/giconyellow/printImage.gif</filename>
-			<filename>front/assets/images/giconyellow/printShadow.gif</filename>
-			<filename>front/assets/images/giconyellow/shadow.png</filename>
-			<filename>front/assets/images/giconyellow/transparent.png</filename>
+			<filename>front/assets/images/icon/1.png</filename>
+			<filename>front/assets/images/icon/2.png</filename>
+			<filename>front/assets/images/icon/3.png</filename>
+			<filename>front/assets/images/icon/4.png</filename>
+			<filename>front/assets/images/icon/5.png</filename>
+			<filename>front/assets/images/icon/index.html</filename>
 			<filename>front/assets/images/index.html</filename>
 			<filename>front/assets/index.html</filename>
 			<filename>front/assets/yandexmaps.css</filename>

@@ -73,7 +73,12 @@ $ordering = ($this->lists['order'] == 'a.ordering');
 						}
 						?>
 					</td>
-					<td><?php echo '{yandexmaps view=map|id='.$row->id.'} ' . JText::_('or'). '  {yandexmaps view=link|id='.$row->id.'|text=Map}';?></td>
+					<td align="center"><?php 
+					
+					echo JHTML::tooltip(JText::_('Plugin Code 1'), JText::_('Plugin Code'), '', '{yandexmaps view=map|id='.$row->id.'}');
+				 	echo JText::_('or');
+					echo JHTML::tooltip(JText::_('Plugin Code 2'), JText::_('Plugin Code'), '', '{yandexmaps view=link|id='.$row->id.'|text=Map}');
+					?></td>
 					<td align="center"><?php echo $published;?></td>
 					<td class="order">
 						<span><?php echo $this->pagination->orderUpIcon( $i, true,'orderup', 'Move Up', $ordering ); ?></span>

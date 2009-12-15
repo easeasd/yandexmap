@@ -30,16 +30,22 @@ class YandexMapsRender
 		return $button;
 	}
 	
-	function renderFormInput($name, $title, $value, $size = 50, $maxlength = 250, $attribute = '', $style = '') {
+	function renderFormInput($name, $title, $tooltip, $value, $size = 50, $maxlength = 250, $attribute = '', $style = '') {
 		
 		$styleOutput = '';
 		if ($style != '') {
 			$styleOutput = 'style="'.$style.'"';
 		}
 		
+		if ($tooltip != '') {
+			$tooltipOutput = JHTML::tooltip(JText::_($tooltip), JText::_($title), '', JText::_($title));
+		}else{
+			$tooltipOutput = JText::_($title);
+		}
+		
 		$output = '<tr>'
 				 .'<td width="100" align="right" class="key">'
-				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
+				 .'<label for="'.$name.'">'.$tooltipOutput.':</label>'
 				 .'</td><td>'
 				 .'<input class="text_area" type="text" name="'.$name.'" id="'.$name.'" size="'.$size.'" maxlength="'.$maxlength.'" value="'.$value.'" '.$attribute.' '.$styleOutput.' />'
 				.'</td></tr>';
@@ -63,11 +69,22 @@ class YandexMapsRender
 	}
 
 	
-	function renderFormItemSpecial($name, $title, $special) {
+	function renderFormItemSpecial($name, $title, $tooltip, $special, $style = '') {
+	
+	$styleOutput = '';
+		if ($style != '') {
+			$styleOutput = 'style="'.$style.'"';
+		}
+
+		if ($tooltip != '') {
+			$tooltipOutput = JHTML::tooltip(JText::_($tooltip), JText::_($title), '', JText::_($title));
+		}else{
+		$tooltipOutput = JText::_($title);
+		}
 		
 		$output = '<tr>'
 				 .'<td width="100" align="right" class="key">'
-				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
+				 .'<label for="'.$name.'">'.$tooltipOutput.':</label>'
 				 .'</td><td>'
 				 . $special
 				 .'</td></tr>';
@@ -198,16 +215,22 @@ class YandexMapsRender
 		return $output;
 	}
 	
-	function renderFormSelectBox($name, $title, $value, $option, $style = '') {
+	function renderFormSelectBox($name, $title, $tooltip, $value, $option, $style = '') {
 		
 		$styleOutput = '';
 		if ($style != '') {
 			$styleOutput = 'style="'.$style.'"';
 		}
 		
+		if ($tooltip != '') {
+			$tooltipOutput = JHTML::tooltip(JText::_($tooltip), JText::_($title), '', JText::_($title));
+		}else{
+			$tooltipOutput = JText::_($title);
+		}
+		
 		$output = '<tr>'
 				 .'<td width="100" align="right" class="key">'
-				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
+				 .'<label for="'.$name.'">'.$tooltipOutput.':</label>'
 				 .'</td><td>';
 		
 		$output .= '<select class="text_area" name="'.$name.'" id="'.$name.'" '.$styleOutput.' />';		
@@ -223,4 +246,5 @@ class YandexMapsRender
 		$output .= '</td></tr>';
 		return $output;
 	}
+
 }
