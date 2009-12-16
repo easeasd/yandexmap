@@ -81,11 +81,11 @@ if (isset($this->map->displayroute) && $this->map->displayroute == 1) {
 }
 
  //стартуем загрузку карты
-/*$scriptheader .= '<script type="text/javascript" >//<![CDATA[' ."\n";*/
+$scriptheader = '<script type="text/javascript" >//<![CDATA[' ."\n";
 
-$scriptheader = 'var map, geoResult;' ."\n";
+$scriptheader .= 'var map, geoResult;' ."\n";
 
-		$scriptheader .= 'window.onload = function () {' ."\n";
+		$scriptheader .= 'YMaps.jQuery(function () {' ."\n";
 		
         $scriptheader .= '    map = new YMaps.Map(document.getElementById("YMapsID"));' ."\n";
 		
@@ -166,15 +166,20 @@ $scriptheader = 'var map, geoResult;' ."\n";
 				break;
 			}
 		}
-		
+		//миникарта
 		if (isset($this->map->collapsibleoverview) && (int)$this->map->collapsibleoverview == 1) {
 			$scriptheader .= 'map.addControl(new YMaps.MiniMap());' ."\n";
 		}
 		
 		
-		
+		//яндексбар
 		if (isset($this->map->googlebar) && (int)$this->map->googlebar == 1) {
 			$scriptheader .= 'map.addControl(new YMaps.ToolBar());' ."\n";
+		}
+		
+		//поиск
+		if (isset($map->border) && (int)$map->border == 1) {
+			$scriptheader .= 'map.addControl(new YMaps.SearchControl());' ."\n";
 		}
 		
 		
@@ -197,13 +202,15 @@ $scriptheader = 'var map, geoResult;' ."\n";
 					}
 					
 					
-if (isset($markerV->icon) && (int)$markerV->icon != '') {
+if ($markerV->icon != '') {
 
 // Создание стиля для значка метки
           $scriptheader .=   'var s'.$markerV->id.' = new YMaps.Style();' ."\n";
           $scriptheader .=   's'.$markerV->id.'.iconStyle = new YMaps.IconStyle();' ."\n";
           $scriptheader .=   's'.$markerV->id.'.iconStyle.href = "/components/com_yandexmaps/assets/images/icon/'.$markerV->icon.'";' ."\n";
-         // $scriptheader .=   's'.$markerV->id.'.iconStyle.size = new YMaps.Point(26, 26);' ."\n";
+		  //получаем размеры иконки
+		  list($width, $height) = getimagesize(JPATH_SITE.'/components/com_yandexmaps/assets/images/icon/'.$markerV->icon); 	  
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.size = new YMaps.Point('.$width.', '.$height.');' ."\n";
           $scriptheader .=   's'.$markerV->id.'.iconStyle.offset = new YMaps.Point(-9, -29);' ."\n";
 		  
 		/*  $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow = new YMaps.IconShadowStyle();' ."\n";
@@ -217,7 +224,7 @@ if (isset($markerV->icon) && (int)$markerV->icon != '') {
 		
 		}else{
 		
-		//Загружаем балуны всякие
+		
 		  $scriptheader .= 'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint( '.$markerV->longitude.', '.$markerV->latitude.'));' ."\n";
 							
 		}
@@ -246,7 +253,7 @@ if (isset($markerV->icon) && (int)$markerV->icon != '') {
 		}
 	
 	
-$scriptheader .= '}' ."\n";
+$scriptheader .= '});' ."\n";
 
 
 /*Поиск по карте*/
@@ -274,9 +281,9 @@ if (isset($this->map->displayroute) && $this->map->displayroute == 1) {
 	}
 }
 
-/*$scriptheader .= '//]]></script>' ."\n";*/		
+$scriptheader .= '//]]></script>' ."\n";
 
-$document->addScriptDeclaration($scriptheader);
+echo $scriptheader;
 }
 if ($this->tmpl['displayyandexinfo'] == 1) {
 	echo '<!--<div style="text-align:right;margin-top:10px;clear:both; font-size:8px;"><a href="http://www.phoca.cz/" style="color:#CCCCCC">www.phoca.cz</a></div>-->';

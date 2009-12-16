@@ -50,8 +50,12 @@ echo YandexMapsRender::renderFormStyle();?>
 		echo YandexMapsRender::renderFormSelectBox('dynamiclabel', 'Dynamic Label Control', '', $this->item->dynamiclabel, $option);
 		echo YandexMapsRender::renderFormSelectBox('googlebar', 'GoogleBar', '', $this->item->googlebar, $option);
 		echo YandexMapsRender::renderFormSelectBox('displayroute', 'Display Get Route Form', '', $this->item->displayroute, $option);
-		
+			
+
+		$option = array(0 => 'No', 1 => 'Yes');
+		echo YandexMapsRender::renderFormSelectBox('border', 'Search Maps', '', $this->item->border, $option, 1);
 		?>
+	
 	</table>	
 </fieldset>
 </div>

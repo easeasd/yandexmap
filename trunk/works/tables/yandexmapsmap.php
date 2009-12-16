@@ -12,9 +12,9 @@ class TableYandexMapsMap extends JTable
 	var $zoom				= null;
 	var $lang				= '1.1';
 	var $border				= null;
-	var $continuouszoom 	= 1;
-	var $doubleclickzoom 	= 1;
-	var $scrollwheelzoom 	= 1;
+	var $continuouszoom 	= 0;
+	var $doubleclickzoom 	= 0;
+	var $scrollwheelzoom 	= 0;
 	var $zoomcontrol		= 1;
 	var $scalecontrol 		= 0;
 	var $typecontrol		= 1;
