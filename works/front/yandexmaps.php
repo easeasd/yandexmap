@@ -11,7 +11,6 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 require_once( JPATH_COMPONENT.DS.'controller.php' );
 require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_yandexmaps'.DS.'helpers'.DS.'yandexmaps.php' );
-require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_yandexmaps'.DS.'helpers'.DS.'yandexmapsrenderfront.php' );
 
 // Require specific controller if requested
 if($controller = JRequest::getWord('controller')) {

@@ -202,8 +202,8 @@ class YandexMapsCpModelYandexMapsMap extends JModel
 			$table->id					= null;
 			$table->title				= null;
 			$table->alias				= null;
-			$table->width				= 400;
-			$table->height				= 360;
+			$table->width				= 0;
+			$table->height				= 400;
 			$table->latitude			= 57.619879;
 			$table->longitude			= 39.870592;
 			$table->zoom				= 2;	
