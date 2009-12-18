@@ -178,7 +178,7 @@ $scriptheader .= 'var map, geoResult;' ."\n";
 		}
 		
 		//поиск
-		if (isset($map->border) && (int)$map->border == 1) {
+		if (isset($this->map->border) && (int)$this->map->border == 1) {
 			$scriptheader .= 'map.addControl(new YMaps.SearchControl());' ."\n";
 		}
 		
@@ -287,8 +287,6 @@ echo $scriptheader;
 }
 if ($this->tmpl['displayyandexinfo'] == 1) {
 	echo '<!--<div style="text-align:right;margin-top:10px;clear:both; font-size:8px;"><a href="http://www.phoca.cz/" style="color:#CCCCCC">www.phoca.cz</a></div>-->';
-} else {
-	
 }
 	echo '<div style="text-align:right;margin-top:5px;clear:both; font-size:8px;"><a href="http://yar-it.com/" style="color:#CCCCCC">Яндекс карты</a></div>';
 ?>
