@@ -64,6 +64,11 @@ echo '<p>' . JText::_('Google Maps API Key Error') . '</p>';
 				
 				window.top.document.forms.adminForm.getElementById('longitude').value = geoPoint.getLng();
 				window.top.document.forms.adminForm.getElementById('latitude').value = geoPoint.getLat();
+				
+				<?php if ($this->type == 'marker') { //автоматическая подстановка gps координат ?>
+				setPMGPSLongitude(geoPoint.getLng());
+				setPMGPSLatitude(geoPoint.getLat());
+				<?php } ?>
 
             }
 			
