@@ -86,6 +86,7 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$query.=' `id` int(11) unsigned NOT NULL auto_increment,'."\n";
 		$query.=' `catid` int(11) NOT NULL default \'0\','."\n";
 		$query.=' `title` varchar(250) NOT NULL default \'\','."\n";
+		$query.=' `titlem` varchar(250) NOT NULL default \'\','."\n";
 		$query.=' `alias` varchar(255) NOT NULL default \'\','."\n";
 		$query.=' `latitude` varchar(20) NOT NULL default \'\','."\n";
 		$query.=' `longitude` varchar(20) NOT NULL default \'\','."\n";
@@ -157,9 +158,11 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		}
 		
 		//Обновление до версии 1.0.5
-		
 		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` CHANGE `icon` `icon` VARCHAR( 50 ) NOT NULL DEFAULT ''";
-		$db->setQuery( $query );	
+		$db->setQuery( $query );
+		//Обновление до версии 1.2.0	
+		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `titlem` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `titlem` ";
+		$db->setQuery( $query );
 		if (!$result = $db->query()){$msgSQL .= $db->stderr() . '<br />';}
 
 		// Error

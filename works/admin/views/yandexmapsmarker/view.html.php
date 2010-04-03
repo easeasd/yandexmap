@@ -63,11 +63,11 @@ class yandexMapsCpViewYandexMapsMarker extends JView
 		}
 		JToolBarHelper::help( 'screen.yandexmaps', true );
 
-		// Edit or Create?
+		// Изменить или создать?
 		if (!$isNew) {
 			$model->checkout( $user->get('id') );
 		} else {
-			// initialise new record
+			// иницианализация
 			$item->published 		= 1;
 			$item->order 			= 0;
 			$item->access			= 0;
@@ -137,7 +137,7 @@ class yandexMapsCpViewYandexMapsMarker extends JView
 			}""';
         $iconimg = isset($item->icon) ? $item->icon : '';
 		$iconcombo = JHTML::_( 'list.images', 'icon', $iconimg , $customJS, $path );
-        $iconcombo .= '<br/><br/><img src="' . $fullpath . $iconimg  .'" name="imagelib"  border="0" alt="' . JText::_( 'Poumolchaniu' ) . '" /><br />';
+        $iconcombo .= '&nbsp;<img src="' . $fullpath . $iconimg  .'" name="imagelib"  border="0" alt="' . JText::_( 'Poumolchaniu' ) . '" /><br />';
 		
 			
 		$this->assignRef('editor', $editor);

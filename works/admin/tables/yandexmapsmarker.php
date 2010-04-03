@@ -6,6 +6,7 @@ class TableYandexMapsMarker extends JTable
 	var $id					= null;
 	var $catid				= null;
 	var $title				= null;
+	var $titlem				= null;
 	var $alias				= null;
 	var $latitude			= null;
 	var $longitude			= null;

@@ -98,18 +98,18 @@ class YandexMapsRender
 			$styleOutput = 'style="'.$style.'"';
 		}
 			
-		$output = '<tr>'
-				 .'<td width="100" align="right" class="key">'
-				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
-				 .'</td><td>'
-				 .'<input class="text_area" type="text" name="'.$name.'" id="'.$name.'" value="'.$value.'" size="'.$size.'" maxlength="'.$maxlength.'" '.$attribute.' '.$styleOutput.' />'
-				 .'</td>'
-				 .'<td align="left" valign="middle">'
+		$output = '<tr><td></td><td align="left" valign="middle">'
 				 .'<div class="button2-left" style="display:inline">'
 				 .'<div class="'.$button->name.'">'
 				 .'<a class="'.$button->modalname.'" title="'.$button->text.'" href="'.$button->link.'" rel="'.$button->options.'">'.$button->text.'</a>'
 				 .'</div>'
 				 .'</div>'
+				 .'</td></tr>'
+				 .'<tr>'
+				 .'<td width="100" align="right" class="key">'
+				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
+				 .'</td><td>'
+				 .'<input class="text_area" type="text" name="'.$name.'" id="'.$name.'" value="'.$value.'" size="'.$size.'" maxlength="'.$maxlength.'" '.$attribute.' '.$styleOutput.' />'
 				 .'</td></tr>';
 		return $output;
 	}
