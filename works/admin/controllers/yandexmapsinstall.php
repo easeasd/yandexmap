@@ -94,6 +94,7 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$query.=' `gpslongitude` varchar(50) NOT NULL default \'\','."\n";
 		$query.=' `displaygps` tinyint(1) NOT NULL default \'0\','."\n";
 		$query.=' `icon` varchar(50) NOT NULL default \'\','."\n";
+		$query.=' `deficon` varchar(50) NOT NULL default \'\','."\n";
 		$query.=' `description` text NOT NULL,'."\n";
 		$query.=' `published` tinyint(1) NOT NULL default \'0\','."\n";
 		$query.=' `checked_out` int(11) unsigned NOT NULL default \'0\','."\n";
@@ -161,8 +162,13 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` CHANGE `icon` `icon` VARCHAR( 50 ) NOT NULL DEFAULT ''";
 		$db->setQuery( $query );
 		//Обновление до версии 1.2.0	
+		//Дополнительный заголовок маркера
 		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `titlem` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `titlem` ";
 		$db->setQuery( $query );
+		//Иконки по умолчанию
+		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `deficon` VARCHAR( 50 ) NOT NULL DEFAULT 'lightblueSmallPoint' AFTER `icon`";
+		$db->setQuery( $query );
+		
 		if (!$result = $db->query()){$msgSQL .= $db->stderr() . '<br />';}
 
 		// Error

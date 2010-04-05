@@ -202,17 +202,56 @@ class YandexMapsRender
 			}
 			
 			if ($design == 2) {
-				$output .= ' <span>'.JText::_($valueO). '</span> ';
+				//$output .= ' <span>'.JText::_($valueO). '</span> ';
 				if ($valueO == 'default') {
 					$output .= '<br />';
 				} else {
-					$output .= JHTML::_('image', 'components/com_yandexmaps/assets/images/'.$valueO.'/image.png', '') . '<br />';
+					$output .= JHTML::_('image', 'administrator/components/com_yandexmaps/assets/images/deficon/'.$valueO.'.png', '') . '<br /><br />';
 				}
 			}
 			// - - - - - - - - - - - - - - - - - - 
 		}
 		$output .= '</td></tr>';
 		return $output;
+	}
+	
+		function renderFormInputRadioButtonIconDef($name, $title, $value, $option, $design = 0, $style = '') {
+		
+		$styleOutput = '';
+		if ($style != '') {
+			$styleOutput = 'style="'.$style.'"';
+		}
+		
+		$output = '<tr>'
+				 .'<td width="100" align="right" class="key">'
+				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
+				 .'</td><td>';
+				 
+		foreach ($option as $keyO => $valueO) {
+			$checked = '';
+			if ($value == $valueO) {
+				$checked = 'checked="checked"';
+			}
+			
+			
+	$output .= '<input class="text_area" type="radio" name="'.$name.'" id="'.$name.$keyO.'" value="'.$valueO.'" '.$styleOutput.' '.$checked.' />';
+		
+			
+			//$output .= ' <span>'.JText::_($valueO). '</span> ';
+				if ($valueO == 'default') {
+					$output .= '<br />';
+				} else {
+					$output .= JHTML::_('image', 'administrator/components/com_yandexmaps/assets/images/deficon/'.$valueO.'.png','','style="width:19px; height:20px; margin-bottom: 3px;"' ) . '';
+				}
+			
+		// - - - - - - - - - - - - - - - - - - 
+		}
+		$output .= '</td></tr>';
+		
+		      
+	   return $output;
+	  
+		
 	}
 	
 	function renderFormSelectBox($name, $title, $tooltip, $value, $option, $style = '') {
