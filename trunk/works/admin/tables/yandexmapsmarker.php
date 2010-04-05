@@ -14,6 +14,7 @@ class TableYandexMapsMarker extends JTable
 	var $gpslongitude		= null;
 	var $displaygps			= null;
 	var $icon				= null;
+	var $deficon			= 'lightblueSmallPoint';
 	var $description		= null;
 	var $published			= null;
 	var $checked_out		= null;
