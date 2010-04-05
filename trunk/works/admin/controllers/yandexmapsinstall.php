@@ -162,14 +162,21 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` CHANGE `icon` `icon` VARCHAR( 50 ) NOT NULL DEFAULT ''";
 		$db->setQuery( $query );
 		//Обновление до версии 1.2.0	
-		//Дополнительный заголовок маркера
-		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `titlem` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `title` ";
-		$db->setQuery( $query );
-		//Иконки по умолчанию
-		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `deficon` VARCHAR( 50 ) NOT NULL DEFAULT 'lightblueSmallPoint' AFTER `icon`";
-		$db->setQuery( $query );
 		
-		if (!$result = $db->query()){$msgSQL .= $db->stderr() . '<br />';}
+		//Иконки по умолчанию
+		$updateTCP 	= false;
+		$updateTCP	= $this->AddColumnIfNotExists("#__yandexmaps_marker", "deficon", "VARCHAR( 50 ) NOT NULL DEFAULT 'lightblueSmallPoint'", "icon" );
+		if (!$updateTCP) {
+			$msgSQL .= 'Error while updating Type Control Position column<br />';
+		}
+		//Дополнительный заголовок маркера
+		$updateTID 	= false;
+		$updateTID	= $this->AddColumnIfNotExists("#__yandexmaps_marker", "titlem", "VARCHAR( 255 ) NOT NULL", "title" );
+		if (!$updateTID) {
+			$msgSQL .= 'Error while updating Type ID column<br />';
+		}
+		
+		//if (!$result = $db->query()){$msgSQL .= $db->stderr() . '<br />';}
 
 		// Error
 		if ($msgSQL !='') {
@@ -188,7 +195,37 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$link = 'index.php?option=com_yandexmaps';
 		$this->setRedirect($link, $msg);
 	}
-	
+	function AddColumnIfNotExists($table, $column, $attributes = "INT( 11 ) NOT NULL DEFAULT '0'", $after = '' ) {
+		
+		global $mainframe;
+		$db				=& JFactory::getDBO();
+		$columnExists 	= false;
+
+		$query = 'SHOW COLUMNS FROM '.$table;
+		$db->setQuery( $query );
+		if (!$result = $db->query()){return false;}
+		$columnData = $db->loadObjectList();
+		
+		
+		foreach ($columnData as $valueColumn) {
+			if ($valueColumn->Field == $column) {
+				$columnExists = true;
+				break;
+			}
+		}
+		
+		if (!$columnExists) {
+			if ($after != '') {
+				$query = "ALTER TABLE `".$table."` ADD `".$column."` ".$attributes." AFTER `".$after."`";
+			} else {
+				$query = "ALTER TABLE `".$table."` ADD `".$column."` ".$attributes."";
+			}
+			$db->setQuery( $query );
+			if (!$result = $db->query()){return false;}
+		}
+		
+		return true;
+	}
 }
 // utf-8 test: елки моталки
 ?>
