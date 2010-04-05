@@ -163,7 +163,7 @@ class YandexMapsCpControllerYandexMapsInstall extends YandexMapsCpController
 		$db->setQuery( $query );
 		//Обновление до версии 1.2.0	
 		//Дополнительный заголовок маркера
-		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `titlem` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `titlem` ";
+		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `titlem` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `title` ";
 		$db->setQuery( $query );
 		//Иконки по умолчанию
 		$query = " ALTER TABLE `".$dbPref."yandexmaps_marker` ADD `deficon` VARCHAR( 50 ) NOT NULL DEFAULT 'lightblueSmallPoint' AFTER `icon`";
