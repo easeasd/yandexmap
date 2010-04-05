@@ -34,34 +34,22 @@
     <filename>index.html</filename>
     <filename>yandexmaps.php</filename>
     <filename>router.php</filename>
-    <filename>assets/images/icon/1.png</filename>
-    <filename>assets/images/icon/2.png</filename>
-    <filename>assets/images/icon/3.png</filename>
-    <filename>assets/images/icon/4.png</filename>
-    <filename>assets/images/icon/5.png</filename>
-    <filename>assets/images/icon/index.html</filename>
-    <filename>assets/images/index.html</filename>
-    <filename>assets/index.html</filename>
-    <filename>assets/yandexmaps.css</filename>
-    <filename>helpers/index.html</filename>
-    <filename>models/index.html</filename>
-    <filename>models/map.php</filename>
-    <filename>views/index.html</filename>
-    <filename>views/map/index.html</filename>
-    <filename>views/map/metadata.xml</filename>
-    <filename>views/map/tmpl/default.php</filename>
-    <filename>views/map/tmpl/default.xml</filename>
-    <filename>views/map/tmpl/index.html</filename>
-    <filename>views/map/view.html.php</filename>
+    <folder>assets</folder>
+    <folder>helpers</folder>
+    <folder>models</folder>
+    <folder>views</folder>
   </files>
   <!-- Language -->
   <languages>
-    <language tag="ru-RU">language/ru-RU/ru-RU.com_yandexmaps.ini</language>
-    <language tag="ru-RU">language/ru-RU/ru-RU.com_yandexmaps.menu.ini</language>
+    <language tag="ru-RU">admin/language/ru-RU/ru-RU.com_yandexmaps.ini</language>
   </languages>
   <!-- Administration -->
   <administration> <menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu.png" link="option=com_yandexmaps">Yandex Maps</menu>
-    <submenu> <menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-cp.png" link="option=com_yandexmaps">Control Panel</menu><menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-map.png" link="option=com_yandexmaps&amp;view=yandexmapsmaps">Maps</menu><menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-marker.png" link="option=com_yandexmaps&amp;view=yandexmapsmarkers">Markers</menu><menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-info.png" link="option=com_yandexmaps&amp;view=yandexmapsinfo">Info</menu></submenu>
+    <submenu> 
+	<menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-cp.png" link="option=com_yandexmaps">Control Panel</menu>
+	<menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-map.png" link="option=com_yandexmaps&amp;view=yandexmapsmaps">Maps</menu>
+	<menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-marker.png" link="option=com_yandexmaps&amp;view=yandexmapsmarkers">Markers</menu>
+	<menu img="components/com_yandexmaps/assets/images/icon-16-pmap-menu-info.png" link="option=com_yandexmaps&amp;view=yandexmapsinfo">Info</menu></submenu>
     <!-- Administration Main File Copy Section -->
     <files folder="admin">
       <filename>admin.yandexmaps.php</filename>
@@ -74,92 +62,19 @@
       <filename>yandexmaps.xml</filename>
       <filename>uninstall.yandexmaps.php</filename>
       <filename>uninstall.sql</filename>
-      <filename>assets/images/icon-16-pmap-menu-cp.png</filename>
-      <filename>assets/images/icon-16-pmap-menu-info.png</filename>
-      <filename>assets/images/icon-16-pmap-menu-map.png</filename>
-      <filename>assets/images/icon-16-pmap-menu-marker.png</filename>
-      <filename>assets/images/icon-16-pmap-menu.png</filename>
-      <filename>assets/images/icon-16-warning.png</filename>
-      <filename>assets/images/icon-48-info.png</filename>
-      <filename>assets/images/icon-48-map.png</filename>
-      <filename>assets/images/icon-48-marker.png</filename>
-      <filename>assets/images/icon-48-yandex.png</filename>
-      <filename>assets/images/index.html</filename>
-      <filename>assets/images/logo-yandex.png</filename>
-      <filename>assets/images/logo-product.png</filename>
-      <filename>assets/images/logo.png</filename>
-      <filename>assets/index.html</filename>
-      <filename>assets/jcp/defaultcolor.jpg</filename>
-      <filename>assets/jcp/index.html</filename>
-      <filename>assets/jcp/license.txt</filename>
-      <filename>assets/jcp/picker.css</filename>
-      <filename>assets/jcp/picker.js</filename>
-      <filename>assets/js/coordinates.js</filename>
-      <filename>assets/js/index.html</filename>
-      <filename>assets/yandexmaps.css</filename>
-      <filename>controllers/index.html</filename>
-      <filename>controllers/yandexmapsinfo.php</filename>
-      <filename>controllers/yandexmapsinstall.php</filename>
-      <filename>controllers/yandexmapsmap.php</filename>
-      <filename>controllers/yandexmapsmarker.php</filename>
-      <filename>controllers/yandexmapsuninstall.php</filename>
-      <filename>elements/index.html</filename>
-      <filename>elements/yandexcolortext.php</filename>
-      <filename>elements/yandexhead.php</filename>
-      <filename>elements/yandexlistwarning.php</filename>
-      <filename>elements/yandexlongtext.php</filename>
-      <filename>elements/yandexmap.php</filename>
-      <filename>elements/yandextext.php</filename>
-      <filename>elements/yandextextarea.php</filename>
-      <filename>help/ru-RU/css/help.css</filename>
-      <filename>help/ru-RU/css/index.html</filename>
-      <filename>help/ru-RU/index.html</filename>
-      <filename>help/ru-RU/screen.yandexmaps.html</filename>
-      <filename>helpers/index.html</filename>
-      <filename>helpers/yandexmaps.php</filename>
-      <filename>helpers/yandexmapsrender.php</filename>
-      <filename>models/index.html</filename>
-      <filename>models/yandexmapsmap.php</filename>
-      <filename>models/yandexmapsmaps.php</filename>
-      <filename>models/yandexmapsmarker.php</filename>
-      <filename>models/yandexmapsmarkers.php</filename>
-      <filename>tables/index.html</filename>
-      <filename>tables/yandexmapsmap.php</filename>
-      <filename>tables/yandexmapsmarker.php</filename>
-      <filename>views/index.html</filename>
-      <filename>views/yandexmapscp/index.html</filename>
-      <filename>views/yandexmapscp/tmpl/default.php</filename>
-      <filename>views/yandexmapscp/tmpl/index.html</filename>
-      <filename>views/yandexmapscp/view.html.php</filename>
-      <filename>views/yandexmapsgmap/index.html</filename>
-      <filename>views/yandexmapsgmap/tmpl/default.php</filename>
-      <filename>views/yandexmapsgmap/tmpl/index.html</filename>
-      <filename>views/yandexmapsgmap/view.html.php</filename>
-      <filename>views/yandexmapsinfo/index.html</filename>
-      <filename>views/yandexmapsinfo/tmpl/default.php</filename>
-      <filename>views/yandexmapsinfo/tmpl/index.html</filename>
-      <filename>views/yandexmapsinfo/view.html.php</filename>
-      <filename>views/yandexmapsmap/index.html</filename>
-      <filename>views/yandexmapsmap/tmpl/form.php</filename>
-      <filename>views/yandexmapsmap/tmpl/index.html</filename>
-      <filename>views/yandexmapsmap/view.html.php</filename>
-      <filename>views/yandexmapsmaps/index.html</filename>
-      <filename>views/yandexmapsmaps/tmpl/default.php</filename>
-      <filename>views/yandexmapsmaps/tmpl/index.html</filename>
-      <filename>views/yandexmapsmaps/view.html.php</filename>
-      <filename>views/yandexmapsmarker/index.html</filename>
-      <filename>views/yandexmapsmarker/tmpl/form.php</filename>
-      <filename>views/yandexmapsmarker/tmpl/index.html</filename>
-      <filename>views/yandexmapsmarker/view.html.php</filename>
-      <filename>views/yandexmapsmarkers/index.html</filename>
-      <filename>views/yandexmapsmarkers/tmpl/default.php</filename>
-      <filename>views/yandexmapsmarkers/tmpl/index.html</filename>
-      <filename>views/yandexmapsmarkers/view.html.php</filename>
+      <folder>assets</folder>
+      <folder>controllers</folder>
+      <folder>elements</folder>
+      <folder>help</folder>
+      <folder>helpers</folder>
+      <folder>models</folder>
+      <folder>tables</folder>
+      <folder>views</folder>
     </files>
     <!-- Язык -->
-    <languages>
-      <language tag="ru-RU">language/ru-RU/ru-RU.com_yandexmaps.ini</language>
-      <language tag="ru-RU">language/ru-RU/ru-RU.com_yandexmaps.menu.ini</language>
+    <languages folder="admin/language">
+      <language tag="ru-RU">ru-RU.com_yandexmaps.ini</language>
+      <language tag="ru-RU">ru-RU.com_yandexmaps.menu.ini</language>
     </languages>
   </administration>
 </install>
