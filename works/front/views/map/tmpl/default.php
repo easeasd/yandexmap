@@ -40,7 +40,6 @@ if ($this->tmpl['apikey'] == '') {
 	$document	= & JFactory::getDocument();
 	$scriptLink	= 'http://api-maps.yandex.ru/'.$mapLang.'/index.xml?key='. $this->tmpl['apikey'];
 	$document->addScript($scriptLink);
-	//echo '<noscript>'. JText::_('GOOGLE MAP ENABLE JAVASCRIPT').'</noscript>';
 	
 	if ($fullWidth == 1) {//если 0 то растягиваем на 100%
 	
@@ -192,7 +191,7 @@ $scriptheader .= 'var map, geoResult;' ."\n";
 				if ((isset($markerV->longitude) && $markerV->longitude != '')
 				&& (isset($markerV->latitude) && $markerV->latitude != '')) {
 					
-					$text =  '<h2>' . addslashes($markerV->title) . '</h2>';
+					$text =  '<h3 class="yandexmapH3">' . addslashes($markerV->title) . '</h3>';
 					$text .= YandexMapsHelper::strTrimAll(addslashes($markerV->description));
 					if ($markerV->displaygps == 1) {
 						$text .= '<div class="pmgps"><table border="0"><tr><td><strong>'. JText::_('GPS') . ': </strong></td>'
@@ -207,40 +206,32 @@ if ($markerV->icon != '') {
 // Создание стиля для значка метки
           $scriptheader .=   'var s'.$markerV->id.' = new YMaps.Style();' ."\n";
           $scriptheader .=   's'.$markerV->id.'.iconStyle = new YMaps.IconStyle();' ."\n";
-          $scriptheader .=   's'.$markerV->id.'.iconStyle.href = "/components/com_yandexmaps/assets/images/icon/'.$markerV->icon.'";' ."\n";
+          $scriptheader .=   's'.$markerV->id.'.iconStyle.href = "'.JURI::base().'/components/com_yandexmaps/assets/images/icon/'.$markerV->icon.'";' ."\n";
 		  //получаем размеры иконки
 		  list($width, $height) = getimagesize(JPATH_SITE.'/components/com_yandexmaps/assets/images/icon/'.$markerV->icon); 	  
           $scriptheader .=   's'.$markerV->id.'.iconStyle.size = new YMaps.Point('.$width.', '.$height.');' ."\n";
           $scriptheader .=   's'.$markerV->id.'.iconStyle.offset = new YMaps.Point(-9, -29);' ."\n";
 		  
-		/*  $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow = new YMaps.IconShadowStyle();' ."\n";
-          $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow.href = "/components/com_yandexmaps/assets/images/icon/'.$markerV->icon.'-shadow.png";' ."\n";
-          $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow.size = new YMaps.Point(26, 26);' ."\n";
-          $scriptheader .=   's'.$markerV->id.'.iconStyle.shadow.offset = new YMaps.Point(-9, -29);' ."\n";*/
-
-		
-		  $scriptheader .=	'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint('.$markerV->longitude.', '.$markerV->latitude.'), {style: s'.$markerV->id.'});' ."\n";
+				
+		  $scriptheader .=	'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint('.$markerV->longitude.', '.$markerV->latitude.'), {style: s'.$markerV->id.', balloonOptions: {maxWidth: 200}});' ."\n";
 							
 		
-		}else{
-		
-		
-		  $scriptheader .= 'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint( '.$markerV->longitude.', '.$markerV->latitude.'));' ."\n";
+		}else{ //стандартные маркеры
+			  
+		 $scriptheader .= 'var point'.$markerV->id.' = new YMaps.Placemark(new YMaps.GeoPoint('.$markerV->longitude.', '.$markerV->latitude.'), {style: "default#'.$markerV->deficon.'", balloonOptions: {maxWidth: 200}});'."\n";
+		 
+		 	if (isset($this->map->continuouszoom) && (int)$this->map->continuouszoom == 1 && $markerV->titlem !== '') {
+				$scriptheader .= 'point'.$markerV->id.'.setIconContent(\''.addslashes('<center>'.$markerV->titlem.'</center>').'\');' ."\n";
+			} else {
+				$scriptheader .= 'point'.$markerV->id.'.setIconContent();' ."\n";
+			}
 							
 		}
-	
-	
-	 if (isset($this->map->continuouszoom) && (int)$this->map->continuouszoom == 1) {
-			$scriptheader .= 'point'.$markerV->id.'.setIconContent(\''.addslashes($markerV->title).'\');' ."\n";
-		} else {
-			$scriptheader .= 'point'.$markerV->id.'.setIconContent();' ."\n";
-		}
-
 	
 	 
 		$scriptheader .= 'map.addOverlay(point'.$markerV->id.');' ."\n";
 					
-		$scriptheader .= 'point'.$markerV->id.'.setBalloonContent(\''.$text.'\', {maxWidth: 100});' ."\n";
+		$scriptheader .= 'point'.$markerV->id.'.setBalloonContent(\''.$text.'\');' ."\n";
       //Открытый или закрытый балун  			
 		 if (isset($this->map->dynamiclabel) && (int)$this->map->dynamiclabel == 1) {
 			$scriptheader .= 'point'.$markerV->id.'.closeBalloon();' ."\n";
