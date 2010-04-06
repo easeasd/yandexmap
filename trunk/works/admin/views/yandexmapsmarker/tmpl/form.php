@@ -29,7 +29,7 @@ echo YandexMapsRender::renderFormStyle();?>
         </div></td>
       <td style="width:365px;" valign="top"><div class="col50" style="width:365px;">
           <fieldset class="adminform">
-          <legend><?php echo JText::_('Nastroykamarkera'); ?></legend>
+          <legend><?php echo JText::_('Markera'); ?></legend>
           <?php  
 jimport('joomla.html.pane');
 $pane =& JPane::getInstance('Sliders');
@@ -67,10 +67,11 @@ echo $pane->startPanel(JText::_('Design Settings'), 'panel2');
 		67 => 'metroStPetersburgIcon', 68 => 'mushroomIcon', 69 => 'pingPongIcon', 70 => 'shopIcon', 71 => 'smartphoneIcon', 
 		72 => 'swimmingIcon', 73 => 'tennisIcon', 74 => 'tramwayIcon', 75 => 'turnLeftIcon', 76 => 'wifiLogoIcon' );
 	
-		echo YandexMapsRender::renderFormInputRadioButtonIconDef('deficon', 'Marker Icon', $this->item->deficon, $option, 2);
+		echo YandexMapsRender::renderFormInputRadioButtonIconDef('deficon', 'Marker Icon', 'Marker Icon Desc', $this->item->deficon, $option, 2);
 
-		echo YandexMapsRender::renderFormItemSpecial('icon', 'Marker Icon', '', $this->iconcombo, '');
+		echo YandexMapsRender::renderFormItemSpecial('icon', 'Marker Icon2', 'Marker Icon2 Desc', $this->iconcombo, '');
 		echo "</table>";
+		
 echo $pane->endPanel();
 }
 echo $pane->endPane();?>
