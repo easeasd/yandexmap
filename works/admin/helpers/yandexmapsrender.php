@@ -215,16 +215,22 @@ class YandexMapsRender
 		return $output;
 	}
 	
-		function renderFormInputRadioButtonIconDef($name, $title, $value, $option, $design = 0, $style = '') {
+		function renderFormInputRadioButtonIconDef($name, $title, $tooltip, $value, $option, $design = 0, $style = '') {
 		
 		$styleOutput = '';
 		if ($style != '') {
 			$styleOutput = 'style="'.$style.'"';
 		}
 		
+		if ($tooltip != '') {
+			$tooltipOutput = JHTML::tooltip(JText::_($tooltip), JText::_($title), '', JText::_($title));
+		}else{
+			$tooltipOutput = JText::_($title);
+		}
+		
 		$output = '<tr>'
 				 .'<td width="100" align="right" class="key">'
-				 .'<label for="'.$name.'">'.JText::_($title).':</label>'
+				 .'<label for="'.$name.'">'.$tooltipOutput.':</label>'
 				 .'</td><td>';
 				 
 		foreach ($option as $keyO => $valueO) {

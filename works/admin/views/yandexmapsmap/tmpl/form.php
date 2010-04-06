@@ -8,6 +8,9 @@ echo YandexMapsRender::renderSubmitButtonJs(array(
 echo YandexMapsRender::renderFormStyle();?>
 
 <form action="<?php echo $this->request_url; ?>" method="post" name="adminForm" id="adminForm">
+<table width="100%">
+    <tr>
+      <td width="60%" valign="top">
 <div class="col50">
 <fieldset class="adminform">
 	<legend><?php echo JText::_('Basic Settings'); ?></legend>
@@ -30,6 +33,8 @@ echo YandexMapsRender::renderFormStyle();?>
 	</table>	
 </fieldset>
 </div>
+</td>
+      <td style="width:40%;" valign="top">
 <div class="col50">
 <fieldset class="adminform">
 	<legend><?php echo JText::_('Advanced Settings'); ?></legend>
@@ -49,7 +54,7 @@ echo YandexMapsRender::renderFormStyle();?>
 		echo YandexMapsRender::renderFormSelectBox('collapsibleoverview', 'Collapsible Overview Control', '', $this->item->collapsibleoverview, $option);
 		echo YandexMapsRender::renderFormSelectBox('dynamiclabel', 'Dynamic Label Control', '', $this->item->dynamiclabel, $option);
 		echo YandexMapsRender::renderFormSelectBox('googlebar', 'GoogleBar', '', $this->item->googlebar, $option);
-		echo YandexMapsRender::renderFormSelectBox('displayroute', 'Display Get Route Form', '', $this->item->displayroute, $option);
+		//echo YandexMapsRender::renderFormSelectBox('displayroute', 'Display Get Route Form', '', $this->item->displayroute, $option);
 			
 
 		$option = array(0 => 'No', 1 => 'Yes');
@@ -59,7 +64,9 @@ echo YandexMapsRender::renderFormStyle();?>
 	</table>	
 </fieldset>
 </div>
-
+</td>
+    </tr>
+  </table>
 <div class="clr"></div>
 
 <input type="hidden" name="option" value="com_yandexmaps" />
