@@ -74,13 +74,18 @@ $ordering = ($this->lists['order'] == 'a.ordering');
 					
 					<td align="center">
                     <?php 
+							
+							if ($row->icon != '')
+							{
 							$path = 'components/com_yandexmaps/assets/images/icon/';
 							$fullpath = JURI::root() . $path;
-							if ($row->icon != '')
-							{?>
+							?>
                     <img src="<?php echo $fullpath.$row->icon; ?>" alt="" />
-                    <?php }else{?>
-                    <?php echo JText::_('Poumolchaniu');?>
+                    <?php }else{
+					$path = 'administrator/components/com_yandexmaps/assets/images/deficon/';
+							$fullpath = JURI::root() . $path;
+					?>
+                    <img src="<?php echo $fullpath.$row->deficon; ?>.png" alt="" />
                     <?php }?>
                     </td>
 					<td align="center">

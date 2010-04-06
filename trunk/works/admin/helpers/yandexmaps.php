@@ -25,38 +25,9 @@ class YandexMapsHelper
 	}
 
 	function getYandexVersion() {
-		$component = 'com_yandexmaps';
-		$folder = JPATH_ADMINISTRATOR .DS. 'components'.DS.$component;
+		$versionactiv = '1.2.0';
+			return $versionactiv;
 		
-		if (JFolder::exists($folder)) {
-			$xmlFilesInDir = JFolder::files($folder, '.xml$');
-		} else {
-			$folder = JPATH_SITE .DS. 'components'.DS.$component;
-			if (JFolder::exists($folder)) {
-				$xmlFilesInDir = JFolder::files($folder, '.xml$');
-			} else {
-				$xmlFilesInDir = null;
-			}
-		}
-
-		$xml_items = '';
-		if (count($xmlFilesInDir))
-		{
-			foreach ($xmlFilesInDir as $xmlfile)
-			{
-				if ($data = JApplicationHelper::parseXMLInstallFile($folder.DS.$xmlfile)) {
-					foreach($data as $key => $value) {
-						$xml_items[$key] = $value;
-					}
-				}
-			}
-		}
-		
-		if (isset($xml_items['version']) && $xml_items['version'] != '' ) {
-			return $xml_items['version'];
-		} else {
-			return '';
-		}
 	}
 	
 }
