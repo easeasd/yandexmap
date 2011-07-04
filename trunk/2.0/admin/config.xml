@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/administrator/components/com_yandexmaps/elements">
+
+	<param name="@yandexhead" type="yandexhead" default="GENERAL SETTINGS LABEL" />
+		
+	<param name="google_maps_api_key" size="40" type="yandexlongtext" default="" label="Google Maps API Key" description="Google Maps API Key DESC" />
+		
+	<param name="@spacer" type="spacer" default="" label="" description="" />
+	
+	<param name="display_yandex_info" type="list" default="1" label="Display Yandex Info" description="Display Yandex Info DESC">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+		
+	</params>
+</config>
