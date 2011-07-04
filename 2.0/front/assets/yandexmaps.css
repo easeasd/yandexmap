@@ -1,0 +1,12 @@
+div.YMaps {
+	border: 1px solid #CCC;
+}
+div.YMaps:hover{
+	border: 1px solid #000099;
+}
+h3.yandexmapH3 {
+	font-size: 14px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+}
